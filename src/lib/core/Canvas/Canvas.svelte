@@ -1,4 +1,6 @@
 <script lang="ts">
+  // Canvas.svelte
+
   import { onMount } from 'svelte';
 
   export let autoScale = true;
