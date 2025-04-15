@@ -1,6 +1,6 @@
 <!-- +page.svelte -->
 <script lang="ts">
-  import { Workbench, Canvas, ToolBox, ExportButton } from "$lib/core";
+  import { Workbench, Canvas, ToolBox, Cropper, Export } from "$lib/core";
 </script>
 
 <div class="h-screen w-screen">
@@ -21,13 +21,21 @@
     </Canvas>
 
     <Canvas autoScale={true} style="width: 100%; height: 400px; background-color: transparent;"> 
-      <div class="main-cont-test">
+      <div class="main-cont-test flex items-center justify-center">
+        <Cropper width="50%" height="50%" centerX="50%" centerY="50%">
+          <img 
+            src="https://mir-s3-cdn-cf.behance.net/projects/404/a31ea9161476565.Y3JvcCwyNDgwLDE5MzksMCw3ODU.jpg" 
+            alt="Croppable image"
+            style="display: block;"
+            class="the-image"
+          />
+        </Cropper>
       </div>
     </Canvas>
     
     <!-- ToolBox component in the toolbox slot -->
     <ToolBox slot="toolbox">
-      <ExportButton />
+      <Export.HTML />
       <button class="w-full p-2 bg-gray-200 hover:bg-gray-300 rounded mb-2">Tool 1</button>
       <button class="w-full p-2 bg-gray-200 hover:bg-gray-300 rounded mb-2">Tool 2</button>
       <button class="w-full p-2 bg-gray-200 hover:bg-gray-300 rounded mb-2">Tool 3</button>
