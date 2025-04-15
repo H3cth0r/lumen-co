@@ -1,11 +1,11 @@
 <!-- ToolBox.svelte -->
 <script lang="ts">
-  // You can add props or functionality specific to the ToolBox here
+  import { ScrollArea } from "$lib/components/ui/scroll-area/index.js";
 </script>
 
-<div class="toolbox-container">
+<ScrollArea class="h-full w-full bg-pink-500">
   <slot />
-</div>
+</ScrollArea>
 
 <style>
   .toolbox-container {

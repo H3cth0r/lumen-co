@@ -1,10 +1,10 @@
 <!-- +page.svelte -->
 <script lang="ts">
-  import { Workbench, Canvas, ToolBox } from "$lib/core";
+  import { Workbench, Canvas, ToolBox, ExportButton } from "$lib/core";
 </script>
 
 <div class="h-screen w-screen">
-  <Workbench>
+  <Workbench withToolBox={true}>
     <!-- Canvas components -->
     <Canvas autoScale={true} style="width: 100%; height: 500px; background-color: transparent;"> 
       <div class="h-[3000px] w-[800px] bg-green-400 flex justify-end items-end">
@@ -19,9 +19,15 @@
         </div>
       </div>
     </Canvas>
+
+    <Canvas autoScale={true} style="width: 100%; height: 400px; background-color: transparent;"> 
+      <div class="main-cont-test">
+      </div>
+    </Canvas>
     
     <!-- ToolBox component in the toolbox slot -->
     <ToolBox slot="toolbox">
+      <ExportButton />
       <button class="w-full p-2 bg-gray-200 hover:bg-gray-300 rounded mb-2">Tool 1</button>
       <button class="w-full p-2 bg-gray-200 hover:bg-gray-300 rounded mb-2">Tool 2</button>
       <button class="w-full p-2 bg-gray-200 hover:bg-gray-300 rounded mb-2">Tool 3</button>
@@ -43,3 +49,12 @@
     </ToolBox>
   </Workbench>
 </div>
+
+
+<style>
+.main-cont-test {
+  width: 400px;
+  height: 400px;
+  background-color: orange;
+}
+</style>
