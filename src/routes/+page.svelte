@@ -22,7 +22,7 @@
 
     <Canvas autoScale={true} style="width: 100%; height: 400px; background-color: transparent;"> 
       <div class="main-cont-test flex items-center justify-center">
-        <Cropper width="50%" height="50%" centerX="50%" centerY="50%">
+        <Cropper width="50%" height="50%" centerX="50%" centerY="50%" fitMode="none">
           <img 
             src="https://mir-s3-cdn-cf.behance.net/projects/404/a31ea9161476565.Y3JvcCwyNDgwLDE5MzksMCw3ODU.jpg" 
             alt="Croppable image"
