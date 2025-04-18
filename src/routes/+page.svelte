@@ -6,21 +6,21 @@
 <div class="h-screen w-screen">
   <Workbench withToolBox={true}>
     <!-- Canvas components -->
-    <Canvas autoScale={true} style="width: 100%; height: 500px; background-color: transparent;"> 
+    <Canvas autoScale={true} style="height: 500px; background-color: transparent;"> 
       <div class="h-[3000px] w-[800px] bg-green-400 flex justify-end items-end">
         <div class="h-[30%] w-[10%] bg-orange-300">
         </div>
       </div>
     </Canvas>
     
-    <Canvas autoScale={true} style="width: 100%; height: 400px; background-color: transparent;"> 
+    <Canvas autoScale={true} style="height: 400px; background-color: transparent;"> 
       <div class="h-[2000px] w-[600px] bg-blue-400 flex justify-center items-center">
         <div class="h-[20%] w-[20%] bg-yellow-300">
         </div>
       </div>
     </Canvas>
 
-    <Canvas autoScale={true} style="width: 100%; height: 400px; background-color: transparent;"> 
+    <Canvas autoScale={true} style="height: 400px; background-color: transparent;"> 
       <div class="main-cont-test flex items-center justify-center">
         <Cropper width="37.87%" height="50.00%" centerX="51.23%" centerY="75.00%" fitMode="none">
           <img 

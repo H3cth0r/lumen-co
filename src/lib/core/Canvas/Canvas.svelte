@@ -1,5 +1,5 @@
+<!-- Canvas.svelte -->
 <script lang="ts">
-  // Canvas.svelte
 
   import { onMount } from 'svelte';
 
@@ -45,7 +45,7 @@
 <div
   bind:this={container}
   style={style}
-  class="relative w-full h-full"
+  class="canvas-main-container relative w-full h-full"
   class:overflow-hidden={autoScale}
   class:overflow-auto={!autoScale}
 >
@@ -58,3 +58,9 @@
     <slot />
   {/if}
 </div>
+
+<style>
+  .canvas-main-container  {
+    width: 100vw;
+  }
+</style>
