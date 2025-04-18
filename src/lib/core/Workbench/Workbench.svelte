@@ -49,7 +49,7 @@
 
           {#if isToolboxOpen}
             <div
-              class="h-[87%] w-full bg-red-500"
+              class="h-[87%] w-full "
               transition:fade={{ duration: 200 }}
             >
               <slot name="toolbox" />
