@@ -11,5 +11,5 @@
   onclick={exportCanvasesToPDF}
   class="w-[90%]"
 >
-  Export PDF (Actual Size)
+  Export PDFs
 </Button>
