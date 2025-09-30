@@ -45,7 +45,7 @@ let containerRect = { width: 0, height: 0, top: 0, left: 0 };
 
 // Generate code string for copying
 $: cropperCode = `<Cropper width="${width}" height="${height}" centerX="${centerX}" centerY="${centerY}" fitMode="${fitMode}">
-  <img src="${imageSrc}" alt="Cropped image" />
+  <img src="${imageSrc}" alt="Cropped Content" />
 </Cropper>`;
 
 // Parse percentage to pixel values
@@ -318,7 +318,7 @@ onMount(() => {
         {#if imageSrc}
           <img 
             src={imageSrc} 
-            alt="Image to crop" 
+            alt="Content to be cropped" 
             class="max-w-full max-h-full object-contain relative"
             bind:this={imageRef}
             on:load={handleImageLoad}
@@ -333,17 +333,20 @@ onMount(() => {
                 class="absolute bg-transparent border-2 border-white cursor-move pointer-events-auto"
                 style="box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);"
                 on:mousedown={startDrag}
+                role="button"
+                tabindex="0"
+                aria-label="Crop area"
               >
                 <!-- Resize handles -->
-                <div class="absolute -top-1 -left-1 w-3 h-3 bg-white rounded-full cursor-nw-resize pointer-events-auto" on:mousedown={(e) => startResize(e, 'top-left')}></div>
-                <div class="absolute -top-1 -right-1 w-3 h-3 bg-white rounded-full cursor-ne-resize pointer-events-auto" on:mousedown={(e) => startResize(e, 'top-right')}></div>
-                <div class="absolute -bottom-1 -left-1 w-3 h-3 bg-white rounded-full cursor-sw-resize pointer-events-auto" on:mousedown={(e) => startResize(e, 'bottom-left')}></div>
-                <div class="absolute -bottom-1 -right-1 w-3 h-3 bg-white rounded-full cursor-se-resize pointer-events-auto" on:mousedown={(e) => startResize(e, 'bottom-right')}></div>
+                <div role="button" tabindex="0" aria-label="Resize top left" class="absolute -top-1 -left-1 w-3 h-3 bg-white rounded-full cursor-nw-resize pointer-events-auto" on:mousedown={(e) => startResize(e, 'top-left')}></div>
+                <div role="button" tabindex="0" aria-label="Resize top right" class="absolute -top-1 -right-1 w-3 h-3 bg-white rounded-full cursor-ne-resize pointer-events-auto" on:mousedown={(e) => startResize(e, 'top-right')}></div>
+                <div role="button" tabindex="0" aria-label="Resize bottom left" class="absolute -bottom-1 -left-1 w-3 h-3 bg-white rounded-full cursor-sw-resize pointer-events-auto" on:mousedown={(e) => startResize(e, 'bottom-left')}></div>
+                <div role="button" tabindex="0" aria-label="Resize bottom right" class="absolute -bottom-1 -right-1 w-3 h-3 bg-white rounded-full cursor-se-resize pointer-events-auto" on:mousedown={(e) => startResize(e, 'bottom-right')}></div>
                 
-                <div class="absolute top-1/2 -left-1 w-3 h-3 bg-white rounded-full cursor-w-resize transform -translate-y-1/2 pointer-events-auto" on:mousedown={(e) => startResize(e, 'left')}></div>
-                <div class="absolute top-1/2 -right-1 w-3 h-3 bg-white rounded-full cursor-e-resize transform -translate-y-1/2 pointer-events-auto" on:mousedown={(e) => startResize(e, 'right')}></div>
-                <div class="absolute -top-1 left-1/2 w-3 h-3 bg-white rounded-full cursor-n-resize transform -translate-x-1/2 pointer-events-auto" on:mousedown={(e) => startResize(e, 'top')}></div>
-                <div class="absolute -bottom-1 left-1/2 w-3 h-3 bg-white rounded-full cursor-s-resize transform -translate-x-1/2 pointer-events-auto" on:mousedown={(e) => startResize(e, 'bottom')}></div>
+                <div role="button" tabindex="0" aria-label="Resize left" class="absolute top-1/2 -left-1 w-3 h-3 bg-white rounded-full cursor-w-resize transform -translate-y-1/2 pointer-events-auto" on:mousedown={(e) => startResize(e, 'left')}></div>
+                <div role="button" tabindex="0" aria-label="Resize right" class="absolute top-1/2 -right-1 w-3 h-3 bg-white rounded-full cursor-e-resize transform -translate-y-1/2 pointer-events-auto" on:mousedown={(e) => startResize(e, 'right')}></div>
+                <div role="button" tabindex="0" aria-label="Resize top" class="absolute -top-1 left-1/2 w-3 h-3 bg-white rounded-full cursor-n-resize transform -translate-x-1/2 pointer-events-auto" on:mousedown={(e) => startResize(e, 'top')}></div>
+                <div role="button" tabindex="0" aria-label="Resize bottom" class="absolute -bottom-1 left-1/2 w-3 h-3 bg-white rounded-full cursor-s-resize transform -translate-x-1/2 pointer-events-auto" on:mousedown={(e) => startResize(e, 'bottom')}></div>
               </div>
             </div>
           {/if}
@@ -399,10 +402,10 @@ onMount(() => {
       
       <!-- Fit mode selector using shadcn Select component -->
       <div class="grid grid-cols-4 items-center gap-4">
-        <label class="text-right font-medium">Fit Mode</label>
+        <label for="fit-mode" class="text-right font-medium">Fit Mode</label>
         <div class="col-span-3">
           <Select.Root type="single" disabled={!isImageLoaded} bind:value={fitMode}>
-            <Select.Trigger class="w-full">
+            <Select.Trigger id="fit-mode" class="w-full">
               {triggerContent}
             </Select.Trigger>
             <Select.Content>

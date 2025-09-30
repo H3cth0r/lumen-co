@@ -10,10 +10,10 @@
 </ScrollArea>
 
 <style>
-  .toolbox-container {
-    padding: 0.75rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
+  /* .toolbox-container { */
+  /*   padding: 0.75rem; */
+  /*   display: flex; */
+  /*   flex-direction: column; */
+  /*   gap: 0.5rem; */
+  /* } */
 </style>
