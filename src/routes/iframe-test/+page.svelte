@@ -1,10 +1,7 @@
 <script>
   import { page } from '$app/stores';
-  import { URLConfigurator } from '$lib/core';
+  import URLConfigurator from '$lib/core/URLConfiguration/URLConfiguration.svelte';
 
-  export const ssr = false;
-
-  // --- Configuration ---
   const colorClasses = {
     red: 'bg-red-400',
     blue: 'bg-blue-400',
@@ -15,7 +12,6 @@
     color: Object.keys(colorClasses)
   };
 
-  // --- Reactive Logic (SSR-Safe) ---
   $: color = $page.url.searchParams.get('color') || 'green';
   $: bgColorClass = colorClasses[color] || colorClasses.green;
 </script>

@@ -11,6 +11,15 @@ Read more about creating a library [in the docs](https://svelte.dev/docs/kit/pac
 - ToolBox
 - Workbench
 
+## Build & Publish
+```
+# 1. Build the new version of the package
+npm run build
+
+# 2. Publish version 0.0.2 to GitHub Packages
+npm publish
+```
+
 ## NOTES
 This describes general procedure to publish:
 ```

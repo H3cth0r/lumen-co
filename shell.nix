@@ -2,16 +2,15 @@
 
 pkgs.mkShell {
   buildInputs = with pkgs; [
-    nodejs_23
+    nodejs_22  # <--- CHANGE THIS LINE
     nodePackages.npm
-    nodePackages.pnpm  # Optional but useful for SvelteKit
+    nodePackages.pnpm
   ];
 
   shellHook = ''
     echo "Node.js development environment loaded"
     echo "Ready to develop SvelteKit projects"
     
-    # Set up some helpful environment variables
     export PATH="$PWD/node_modules/.bin:$PATH"
   '';
 }

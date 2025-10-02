@@ -3,6 +3,5 @@ export { default as Workbench } from "./Workbench/Workbench.svelte";
 export { default as Canvas } from "./Canvas/Canvas.svelte";
 export { default as Cropper } from "./Cropper/Cropper.svelte";
 export { default as CropEditor } from "./CropEditor/CropEditor.svelte";
-export { default as URLConfiguration } from "./URLConfiguration/URLConfiguration.svelte";
 export * as Export from "./Export";
 export * as ToolBox from "./ToolBox";
